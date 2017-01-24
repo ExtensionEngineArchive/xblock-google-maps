@@ -1,0 +1,3 @@
+# Custom ignore rules:
+## Python general
+*.py[cod]
