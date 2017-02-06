@@ -1,15 +1,78 @@
-<div class="wrapper-comp-settings is-active editor-with-buttons google-maps-edit-wrapper">
-  <p>Welcome to Google Maps Xblock!</p>
+{% load i18n %}
+
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="google-maps-edit-wrapper">
+  <div class="xblock-inputs">
+    <h2 class="sr">{% trans "XBlock settings" %}</h2>
+    <ul class="list-input settings-list">
+      <li class="field comp-setting-entry is-set">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="display-name-input">{{ fields.display_name.display_name }}</label>
+          <input class="input setting-input edit-display-name" id="display-name-input" aria-describedby="display-name-help" value="{{ self.display_name }}" type="text" 
+          data-default-value="{{ fields.display_name.default }}">
+          <button class="action setting-clear clear-display-name" type="button" name="setting-clear">
+            <i class="icon fa fa-undo" aria-hidden="true"></i>
+            <span class="sr">{% trans "Reset display name to its default value" %}</span>
+          </button>
+        </div>
+        <span class="tip setting-help" id="display-name-help">{{ fields.display_name.help }}</span>
+      </li>
+
+      <li class="field comp-setting-entry is-set edit-api-key-container">
+        <div class="wrapper-comp-setting">
+          <label class="label setting-label" for="api-key-input">{{ fields.api_key.display_name }}</label>
+          <input class="input setting-input edit-api-key" id="api-key-input" value="{{ self.api_key }}" type="text">
+        </div>
+      </li>
+
+      <div class="google-maps-inputs">
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="place-name-input">{{ fields.place_name.display_name }}</label>
+            <input class="input setting-input edit-place-name" id="place-name-input" value="{{ self.place_name }}" type="text" 
+            placeholder="{% trans 'Enter a location' %}">
+          </div>
+        </li>
+
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="iframe-width-input">{{ fields.iframe_width.display_name }}:</label>
+            <input class="input setting-input edit-iframe-width" id="iframe-width-input" value="{{ self.iframe_width }}" type="number" 
+            data-default-value="{{ fields.iframe_width.default }}">
+            <button class="action setting-clear clear-iframe-width" type="button" name="setting-clear">
+              <i class="icon fa fa-undo" aria-hidden="true"></i>
+              <span class="sr">{% trans "Reset iframe width to its default value" %}</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="iframe-height-input">{{ fields.iframe_height.display_name }}:</label>
+            <input class="input setting-input edit-iframe-height" id="iframe-height-input" value="{{ self.iframe_height }}" type="number" 
+            data-default-value="{{ fields.iframe_height.default }}">
+            <button class="action setting-clear clear-iframe-height" type="button" name="setting-clear">
+              <i class="icon fa fa-undo" aria-hidden="true"></i>
+              <span class="sr">{% trans "Reset iframe height to its default value" %}</span>
+            </button>
+          </div>
+        </li>
+      </div>
+
+      <div class="google-maps-preview">
+        <iframe title="{% blocktrans with place_name=self.place_name %}Map showing {{ place_name }}.{% endblocktrans %}" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJCwHM0mF344kRAWE3Rmv-RcY&key={{ self.api_key }}" allowfullscreen></iframe>
+      </div>
+    </ul>
+  </div>
   <div class="xblock-actions">
     <span class="xblock-editor-error-message"></span>
-	<ul>
-	  <li class="action-item">
-	    <a href="#" id="calendar-submit-options" class="button action-primary save-button">Save</a>
-	  </li>
+	  <ul>
+	    <li class="action-item">
+	      <button class="button action-primary save-button">{% trans "Save" %}</button>
+	    </li>
 
-	  <li class="action-item">
-	    <a href="#" class="button cancel-button">Cancel</a>
-	  </li>
-	</ul>
+	    <li class="action-item">
+	      <button class="button cancel-button">{% trans "Cancel" %}</button>
+	    </li>
+	  </ul>
   </div>
 </div>
