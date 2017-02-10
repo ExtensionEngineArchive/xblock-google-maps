@@ -1,0 +1,4 @@
+libsass
+git+https://github.com/edx/XBlock.git#egg=XBlock
+git+https://github.com/edx/xblock-utils.git#egg=xblock-utils
+-e .

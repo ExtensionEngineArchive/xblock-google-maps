@@ -29,6 +29,7 @@ setup(
         'google_maps',
     ],
     install_requires=[
+        'libsass',
         'XBlock',
         'xblock-utils',
     ],

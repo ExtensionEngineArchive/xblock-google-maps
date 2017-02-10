@@ -1,0 +1,52 @@
+/* Sass for GoogleMapsXBlock studio view */
+
+#google-maps-edit-wrapper {
+	button:focus {
+		outline: none;
+	}
+	
+	.field.comp-setting-entry.edit-api-key-container {
+		margin-bottom: 15px;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.fa-undo {
+		position: relative;
+		bottom: 2px;
+	}
+
+	.google-maps-inputs {
+		float: left;
+		width: 325px;
+
+		.field.comp-setting-entry {
+			border-top: none;
+			padding: 5px 10px;
+		}
+
+		.setting-label {
+			display: inline;
+		}
+
+		input {
+			margin-top: 10px;
+			width: 75%;
+
+			&.edit-place-name {
+				width: 95%;
+			}
+		}
+	}
+
+	.google-maps-preview {
+		float: left;
+		padding: 10px 20px;
+	}
+
+	.cancel-button {
+		border: none;
+		background-color: transparent;
+		padding: 0;
+		color: #009fe6;
+	}
+}
