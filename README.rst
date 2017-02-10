@@ -18,7 +18,7 @@ XBlock by running the following command:
 
 .. code:: bash
 
-	$ pip install -e xblock-google-maps
+	$ make requirements
 
 Enabling in Studio
 ------------------
@@ -31,6 +31,16 @@ settings.
 2. Check for the ``Advanced Module List`` policy key, and 
    add ``"google_maps"`` to the policy value list.
 3. Click the "Save changes" button.
+
+Compile Sass
+------------
+
+This XBlock uses Sass for writing style rules. This Sass is compiled by 
+running the following command:
+
+.. code:: bash
+
+	$ make static
 
 License
 -------

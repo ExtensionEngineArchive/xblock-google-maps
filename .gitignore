@@ -3,3 +3,6 @@
 
 # Packages
 *.egg-info
+
+# Static files
+*.css
