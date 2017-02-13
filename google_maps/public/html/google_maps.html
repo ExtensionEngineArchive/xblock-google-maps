@@ -1,5 +1,9 @@
 {% load i18n %}
 
 <div id="google-maps-xblock-wrapper">
-  <iframe lang="en" title="{% blocktrans with place_name=self.place_name %}Map showing {{ place_name }}.{% endblocktrans %}" width="{{ self.iframe_width }}" height="{{ self.iframe_height }}" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJCwHM0mF344kRAWE3Rmv-RcY&key={{ self.api_key }}" allowfullscreen></iframe>
+  <iframe lang="en" class="google-map" frameborder="0"
+          title="{% blocktrans with place_name=self.place_name %}Map showing {{ place_name }}{% endblocktrans %}"
+          width="{{ self.iframe_width }}" height="{{ self.iframe_height }}"
+          src="{{ self.embedded_google_maps_url }}"
+          allowfullscreen></iframe>
 </div>

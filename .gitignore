@@ -8,3 +8,6 @@
 *.css
 node_modules/
 npm-debug.log
+
+# Intellij IDE
+.idea

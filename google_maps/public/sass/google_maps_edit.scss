@@ -1,52 +1,114 @@
 /* Sass for GoogleMapsXBlock studio view */
 
 #google-maps-edit-wrapper {
-	button:focus {
-		outline: none;
-	}
-	
-	.field.comp-setting-entry.edit-api-key-container {
-		margin-bottom: 15px;
-		border-bottom: 1px solid #e5e5e5;
-	}
+    button:focus {
+        outline: none;
+    }
 
-	.fa-undo {
-		position: relative;
-		bottom: 2px;
-	}
+    .api-key-missing {
+        margin-left: 30px;
+    }
 
-	.google-maps-inputs {
-		float: left;
-		width: 325px;
+    .field.comp-setting-entry.edit-display-name {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5;
+    }
 
-		.field.comp-setting-entry {
-			border-top: none;
-			padding: 5px 10px;
-		}
+    .fa-undo {
+        position: relative;
+        bottom: 2px;
+    }
 
-		.setting-label {
-			display: inline;
-		}
+    .google-maps-inputs {
+        float: left;
+        width: 30%;
 
-		input {
-			margin-top: 10px;
-			width: 75%;
+        .field.comp-setting-entry {
+            border-top: none;
+            padding: 5px 10px;
+        }
 
-			&.edit-place-name {
-				width: 95%;
-			}
-		}
-	}
+        .setting-label {
+            display: inline;
+        }
 
-	.google-maps-preview {
-		float: left;
-		padding: 10px 20px;
-	}
+        input {
+            margin-top: 10px;
+            width: 75%;
 
-	.cancel-button {
-		border: none;
-		background-color: transparent;
-		padding: 0;
-		color: #009fe6;
-	}
+            &.edit-place-name {
+                width: 82%;
+            }
+        }
+    }
+
+    .google-maps-preview {
+        float: right;
+        padding: 10px 20px;
+        width: 65%;
+
+        #loading-gif-container {
+            position: absolute;
+            display : block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            opacity: 0.7;
+        }
+
+        .loading-gif {
+            position: absolute;
+            top: 35%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .cancel-button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        color: #009fe6;
+    }
+
+    .google-maps-container {
+        min-width: 980px;
+    }
+
+    .red-text {
+        color: red;
+    }
+
+    .invalid-input {
+        @extend .red-text;
+        border-color: red;
+    }
+
+    .error-message {
+        @extend .red-text;
+        font-size: 14px;
+    }
+
+    .error-message .fa-exclamation-triangle {
+        padding: 5px 5px 0 0;
+    }
+
+    .hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .google-map {
+        border: 0;
+        width: 100%;
+        min-width: 600px;
+        height: auto;
+        min-height: 450px;
+    }
 }
