@@ -1,0 +1,20 @@
+{
+  "name": "xblock-google-maps",
+  "version": "1.0.0",
+  "description": "XBlock that allows embedding Google Maps into an edX course",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ExtensionEngine/xblock-google-maps"
+  },
+  "author": "ExtensionEngine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ExtensionEngine/xblock-google-maps/issues"
+  },
+  "homepage": "https://github.com/ExtensionEngine/xblock-google-maps",
+  "devDependencies": {
+    "pa11y": "^4.6.0"
+  }
+}
