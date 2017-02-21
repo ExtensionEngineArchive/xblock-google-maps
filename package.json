@@ -15,6 +15,6 @@
   },
   "homepage": "https://github.com/ExtensionEngine/xblock-google-maps",
   "devDependencies": {
-    "pa11y": "^4.6.0"
+    "pa11y": "4.6.0"
   }
 }
