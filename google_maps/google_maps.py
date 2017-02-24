@@ -1,8 +1,8 @@
 """ Google Maps XBlock """
-import pkg_resources
 import urllib
 from urlparse import urlunparse
 
+import pkg_resources
 from django.utils.translation import ugettext_lazy as _
 
 from xblock.core import XBlock
@@ -11,10 +11,13 @@ from xblock.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 from xblockutils.settings import XBlockWithSettingsMixin
 
+from .utils import _, DummyTranslationService
+
 loader = ResourceLoader(__name__)
 
 
 @XBlock.needs('settings')
+@XBlock.needs('i18n')
 class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
     """
     XBlock providing a Google Map to a course.
@@ -121,7 +124,14 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
         """
         return (scheme, netloc, path, params, urllib.urlencode(query), fragment)
 
-    def resource_string(self, path):
+    def i18n_service(self):
+        """Obtains translation service."""
+        i18n_service = self.runtime.service(self, "i18n")
+        if i18n_service:
+            return i18n_service
+        return DummyTranslationService()
+
+    def resource_string(self, path):  # pylint: disable=no-self-use
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
         return data.decode('utf8')
@@ -135,7 +145,6 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
             'self': self
         }
 
-        html = self.resource_string('public/html/google_maps.html')
         frag = Fragment()
         frag.add_content(loader.render_template('/public/html/google_maps.html', context))
         frag.add_css(self.resource_string('public/css/google_maps.css'))
@@ -155,7 +164,6 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
             'self': self,
         }
 
-        html = self.resource_string('public/html/google_maps_edit.html')
         frag = Fragment()
         frag.add_content(loader.render_template('/public/html/google_maps_edit.html', context))
         frag.add_css(self.resource_string('public/css/google_maps_edit.css'))
