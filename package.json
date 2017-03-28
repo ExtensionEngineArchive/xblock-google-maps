@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "XBlock that allows embedding Google Maps into an edX course",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "jslint google_maps/public/js/src/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ExtensionEngine/xblock-google-maps"
@@ -15,6 +17,7 @@
   },
   "homepage": "https://github.com/ExtensionEngine/xblock-google-maps",
   "devDependencies": {
+    "jslint": "^0.10.3",
     "pa11y": "4.6.0"
   }
 }

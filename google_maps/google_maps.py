@@ -11,11 +11,11 @@ from xblock.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 from xblockutils.settings import XBlockWithSettingsMixin
 
-loader = ResourceLoader(__name__)
+LOADER = ResourceLoader(__name__)
 
 
 @XBlock.needs('settings')
-class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
+class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin): # pylint: disable=too-many-ancestors
     """
     XBlock providing a Google Map to a course.
     """
@@ -121,7 +121,8 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
         """
         return (scheme, netloc, path, params, urllib.urlencode(query), fragment)
 
-    def resource_string(self, path):
+    @staticmethod
+    def resource_string(path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
         return data.decode('utf8')
@@ -135,9 +136,8 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
             'self': self
         }
 
-        html = self.resource_string('public/html/google_maps.html')
         frag = Fragment()
-        frag.add_content(loader.render_template('/public/html/google_maps.html', context))
+        frag.add_content(LOADER.render_template('/public/html/google_maps.html', context))
         frag.add_css(self.resource_string('public/css/google_maps.css'))
         frag.add_javascript(self.resource_string('public/js/src/google_maps.js'))
         frag.initialize_js('GoogleMapsXBlock')
@@ -155,9 +155,8 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
             'self': self,
         }
 
-        html = self.resource_string('public/html/google_maps_edit.html')
         frag = Fragment()
-        frag.add_content(loader.render_template('/public/html/google_maps_edit.html', context))
+        frag.add_content(LOADER.render_template('/public/html/google_maps_edit.html', context))
         frag.add_css(self.resource_string('public/css/google_maps_edit.css'))
         frag.add_javascript(self.resource_string('public/js/src/google_maps_edit.js'))
         frag.add_javascript_url(urlunparse(self.create_urlunparse_tuple(
@@ -175,7 +174,7 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
         return frag
 
     @XBlock.json_handler
-    def studio_submit(self, data, suffix=''):
+    def studio_submit(self, data, suffix=''):  # pylint: disable=unused-argument
         """
         Called when submitting the form in studio.
         """
