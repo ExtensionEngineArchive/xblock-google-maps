@@ -12,7 +12,7 @@ from xblockutils.settings import XBlockWithSettingsMixin
 
 from .utils import _, DummyTranslationService
 
-loader = ResourceLoader(__name__)
+LOADER = ResourceLoader(__name__)
 
 
 @XBlock.needs('settings')
@@ -130,7 +130,8 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
             return i18n_service
         return DummyTranslationService()
 
-    def resource_string(self, path):  # pylint: disable=no-self-use
+    @staticmethod
+    def resource_string(path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
         return data.decode('utf8')
@@ -145,7 +146,7 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
         }
 
         frag = Fragment()
-        frag.add_content(loader.render_template('/public/html/google_maps.html', context))
+        frag.add_content(LOADER.render_template('/public/html/google_maps.html', context))
         frag.add_css(self.resource_string('public/css/google_maps.css'))
         frag.add_javascript(self.resource_string('public/js/src/google_maps.js'))
         frag.initialize_js('GoogleMapsXBlock')
@@ -164,7 +165,7 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin):
         }
 
         frag = Fragment()
-        frag.add_content(loader.render_template('/public/html/google_maps_edit.html', context))
+        frag.add_content(LOADER.render_template('/public/html/google_maps_edit.html', context))
         frag.add_css(self.resource_string('public/css/google_maps_edit.css'))
         frag.add_javascript(self.resource_string('public/js/src/google_maps_edit.js'))
         frag.add_javascript_url(urlunparse(self.create_urlunparse_tuple(

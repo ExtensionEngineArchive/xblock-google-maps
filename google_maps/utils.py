@@ -16,8 +16,7 @@ def ngettext_fallback(text_singular, text_plural, number):
     """
     if number == 1:
         return text_singular
-    else:
-        return text_plural
+    return text_plural
 
 
 class DummyTranslationService(object):  # pylint: disable=too-few-public-methods
