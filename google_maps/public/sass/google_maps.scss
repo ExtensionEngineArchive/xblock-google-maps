@@ -1,5 +1,7 @@
 /* Sass for GoogleMapsXBlock student view */
 
-iframe {
-	max-width: 100%;
+.google-map {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 0;
 }
