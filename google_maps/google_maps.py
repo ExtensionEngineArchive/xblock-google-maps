@@ -3,8 +3,6 @@ import pkg_resources
 import urllib
 from urlparse import urlunparse
 
-from django.utils.translation import ugettext_lazy as _
-
 from xblock.core import XBlock
 from xblock.fields import Dict, Integer, Scope, String
 from xblock.fragment import Fragment
@@ -29,26 +27,26 @@ class GoogleMapsXBlock(XBlock, XBlockWithSettingsMixin): # pylint: disable=too-m
 
     # Instance level fields
     display_name = String(
-        display_name=_('Display Name'),
-        default=_('Google Maps XBlock'),
-        help=_('The display name for this component.'),
+        display_name='Display Name',
+        default='Google Maps XBlock',
+        help='The display name for this component.',
         scope=Scope.settings
     )
 
     iframe_height = Integer(
-        display_name=_('Map height'),
+        display_name='Map height',
         default=450,
         scope=Scope.settings
     )
 
     iframe_width = Integer(
-        display_name=_('Map width'),
+        display_name='Map width',
         default=600,
         scope=Scope.settings
     )
 
     place = Dict(
-        display_name=_('Information about the place being searched'),
+        display_name='Information about the place being searched',
         default={
             'id': 'ChIJCwHM0mF344kRAWE3Rmv-RcY',  # ExtensionEngine, Boston headquarters
             'name': '196 Broadway, Cambridge, MA 02139, USA'

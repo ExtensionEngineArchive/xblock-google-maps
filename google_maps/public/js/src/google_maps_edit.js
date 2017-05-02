@@ -150,13 +150,12 @@ function GoogleMapsEditXBlock(runtime, element) {
 
     $(element).on('click', '.clear-display-name', function () {
         setDefaultValue(displayNameInput, displayNameDefaultValue, displayNameClearButton);
-    });
 
-    $(element).on('keyup', 'input[id=place-name-input]', function() {
+    $(element).on('keyup', 'input[id=place-name-input]', function () {
         iframePlaceNameClearButton.prop('hidden', iframePlaceNameInput.val() === iframePlaceNameDefaultValue);
     });
 
-    $(element).on('click', '.clear-iframe-place-name', function() {
+    $(element).on('click', '.clear-iframe-place-name', function () {
         googleMapsXBlockApp.place = {
             id: $('.edit-place-name', element).attr('data-default-id-value'),
             name: iframePlaceNameDefaultValue
@@ -169,7 +168,7 @@ function GoogleMapsEditXBlock(runtime, element) {
         googleMapsXBlockApp.toggleErrorMessage(iframePlaceNameInput, false);
     });
 
-    $(element).on('keyup mouseup', 'input[id=iframe-width-input]', function() {
+    $(element).on('keyup mouseup', 'input[id=iframe-width-input]', function () {
         iframeWidthClearButton.prop('hidden', iframeWidthInput.val() === iframeWidthDefaultValue);
     });
 
@@ -189,7 +188,7 @@ function GoogleMapsEditXBlock(runtime, element) {
 
     $(element).on('click', '.cancel-button', exitEditMode);
 
-    $(element).on('blur', 'input[id=api-key-input]', function() {
+    $(element).on('blur', 'input[id=api-key-input]', function () {
         googleMapsXBlockApp.googleMapsApiKey = $('input[id=api-key-input]').val();
     });
 
