@@ -3,7 +3,6 @@ import urllib
 from urlparse import urlunparse
 
 import pkg_resources
-from django.utils.translation import ugettext_lazy as _
 
 from xblock.core import XBlock
 from xblock.fields import Dict, Integer, Scope, String
