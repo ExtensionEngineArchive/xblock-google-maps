@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-07 12:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: google_maps/google_maps.py:20 google_maps/google_maps.py:22
+msgid "Display Name"
+msgstr ""
+
+#: google_maps/google_maps.py:21 google_maps/google_maps.py:23
+msgid "Google Maps XBlock"
+msgstr ""
+
+#: google_maps/google_maps.py:22 google_maps/google_maps.py:24
+msgid "The display name for this component."
+msgstr ""
+
+#: google_maps/google_maps.py:27 google_maps/google_maps.py:29
+msgid "Google Maps API key"
+msgstr ""
+
+#: google_maps/google_maps.py:35
+msgid "Search for a place"
+msgstr ""
+
+#: google_maps/google_maps.py:41
+msgid "Map width"
+msgstr ""
+
+#: google_maps/google_maps.py:47
+msgid "Map height"
+msgstr ""

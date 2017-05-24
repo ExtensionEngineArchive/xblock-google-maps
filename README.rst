@@ -67,6 +67,68 @@ running the following command:
 
 	$ make static
 
+Update translations
+-------------------
+
+*Note: Translations currently don't work i.e. they are not displayed in the xblock.*
+
+If you are adding new strings to the codebase you should always mark them
+for translation. To mark a new string for translation in Python do the following:
+
+.. code:: python
+
+    from .utils import _
+    _('New string')
+
+to do it in JavaScript:
+
+.. code:: javascript
+
+    TBA
+
+and in HTML:
+
+.. code:: html
+
+    {% load i18n %}
+
+    <p>{% trans "New string" %}</p>
+
+Once you have marked all the newly added strings for translations you need to run
+
+.. code:: bash
+
+    $ make extract_translations
+
+to extract them to the initial language's (currently English) .PO file. If you want to initialize a
+a new language folder you can do it with:
+
+.. code:: bash
+
+    $ make init_translation LANG=<two-character language shortcode>
+
+Once you have extracted the strings you can either translate it manually or run
+
+.. code:: bash
+
+    $ make push_translations
+
+to push them to Transifex. In case you are using Transifex for your translations,
+once they are translated you'll need to pull them with:
+
+.. code:: bash
+
+    $ make pull_translations
+
+and compile with:
+
+.. code:: bash
+
+    $ make compile_translations
+
+at which point your translations are ready to be used.
+
+
 License
 -------
 
