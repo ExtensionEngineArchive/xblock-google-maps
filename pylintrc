@@ -1,0 +1,7 @@
+[MESSAGES CONTROL]
+
+disable=too-many-ancestors, unused-argument, import-error, invalid-name, too-many-arguments, fixme
+
+[FORMAT]
+
+max-line-length=120
